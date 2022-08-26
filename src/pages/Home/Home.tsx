@@ -1,20 +1,21 @@
 import {
   ActionIcon,
-  Grid,
+  Anchor,
+  Center,
+  Group,
   Image,
+  Paper,
   Space,
   Stack,
-  Title,
   Text,
+  Title,
   useMantineColorScheme,
-  Paper,
-  Group,
-  Center,
 } from '@mantine/core'
 import { IconMoonStars, IconSun } from '@tabler/icons'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Album } from '../../types/common'
+import './Home.scss'
 
 interface AlbumsResponse {
   data: {
@@ -77,22 +78,35 @@ function Home() {
               shadow="xs"
               p="md"
               withBorder
-              
+              className="album-card"
             >
               <Image
                 radius="md"
                 src={album['im:image'][2].label}
                 alt={`${album['im:name'].label} album cover`}
-                withPlaceholder
-                placeholder={
-                  <Text align="center">
-                    {album['im:name'].label} album cover
-                  </Text>
-                }
-                width={100}
+                width={150}
               />
-              <Stack>
-                <Text>{album['im:name'].label}</Text>
+              <Stack className="album-info">
+                <Text size="lg" weight={700}>
+                  Album Name: {album['im:name'].label}
+                </Text>
+                <Text>
+                  Artist:{' '}
+                  {album['im:artist'].attributes &&
+                  album['im:artist'].attributes.href ? (
+                    <Anchor
+                      href={album['im:artist'].attributes.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {album['im:artist'].label}
+                    </Anchor>
+                  ) : (
+                    album['im:artist'].label
+                  )}
+                </Text>
+                <Text>Track Count: {album['im:itemCount'].label}</Text>
+                <Text>Price: {album['im:price'].label}</Text>
               </Stack>
             </Paper>
           ))}

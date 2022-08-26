@@ -2,6 +2,7 @@ export interface Album {
   'im:name': {
     label: string
   }
+  // Spits out 3 images. Use the 3rd one
   'im:image': {
     label: string
   }[]
