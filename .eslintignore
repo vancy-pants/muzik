@@ -1,0 +1,4 @@
+env.d.ts
+vite-env.d.ts
+vite.config.ts
+test/*
