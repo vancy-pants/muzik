@@ -1,10 +1,15 @@
 import {
   ActionIcon,
   Grid,
+  Image,
   Space,
   Stack,
   Title,
+  Text,
   useMantineColorScheme,
+  Paper,
+  Group,
+  Center,
 } from '@mantine/core'
 import { IconMoonStars, IconSun } from '@tabler/icons'
 import axios from 'axios'
@@ -48,31 +53,52 @@ function Home() {
   }, [])
 
   return (
-    <Grid>
-      <Grid.Col span={6} offset={3}>
-        <Stack align="center">
-          <Space h="md" />
-          <Title order={1}>Muzik</Title>
-          <Space h="md" />
-          <ActionIcon
-            variant="outline"
-            color={dark ? 'yellow' : 'blue'}
-            onClick={() => toggleColorScheme()}
-            title="Toggle color scheme"
-          >
-            {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
-          </ActionIcon>
-        </Stack>
+    <Stack>
+      <Stack align="center">
         <Space h="md" />
+        <Title order={1}>Muzik</Title>
+        <Space h="md" />
+        <ActionIcon
+          variant="outline"
+          color={dark ? 'yellow' : 'blue'}
+          onClick={() => toggleColorScheme()}
+          title="Toggle color scheme"
+        >
+          {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
+        </ActionIcon>
+      </Stack>
+      <Space h="md" />
+      <Center>
         <Stack>
-          {albums.length}
-          <Space h="md" />
           {albums.map((album) => (
-            <p key={album.id.attributes['im:id']}>{album['im:name'].label}</p>
+            <Paper
+              key={album.id.attributes['im:id']}
+              component={Group}
+              shadow="xs"
+              p="md"
+              withBorder
+              
+            >
+              <Image
+                radius="md"
+                src={album['im:image'][2].label}
+                alt={`${album['im:name'].label} album cover`}
+                withPlaceholder
+                placeholder={
+                  <Text align="center">
+                    {album['im:name'].label} album cover
+                  </Text>
+                }
+                width={100}
+              />
+              <Stack>
+                <Text>{album['im:name'].label}</Text>
+              </Stack>
+            </Paper>
           ))}
         </Stack>
-      </Grid.Col>
-    </Grid>
+      </Center>
+    </Stack>
   )
 }
 
