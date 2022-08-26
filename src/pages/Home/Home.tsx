@@ -53,7 +53,7 @@ function Home() {
   }, [])
 
   return (
-    <Stack>
+    <Stack id="page-wrapper">
       <Stack align="center">
         <Space h="md" />
         <Title order={1}>Muzik</Title>
