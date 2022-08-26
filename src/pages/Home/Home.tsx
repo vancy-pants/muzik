@@ -6,6 +6,7 @@ import {
   Title,
   useMantineColorScheme,
 } from '@mantine/core'
+import { IconSun, IconMoonStars } from '@tabler/icons';
 
 function Home() {
   // TODO
@@ -18,7 +19,7 @@ function Home() {
       <Grid.Col span={6} offset={3}>
         <Stack align="center">
           <Space h="md" />
-          <Title order={1}>Home</Title>
+          <Title order={1}>Muzik</Title>
           <Space h="md" />
           <ActionIcon
             variant="outline"
@@ -26,7 +27,7 @@ function Home() {
             onClick={() => toggleColorScheme()}
             title="Toggle color scheme"
           >
-            {dark ? 'D' : 'L'}
+            {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
           </ActionIcon>
         </Stack>
       </Grid.Col>

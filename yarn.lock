@@ -630,6 +630,11 @@
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.28.tgz#15aa0b416f82c268b1573ab653e4413c965fe794"
   integrity sha512-dgJd3HLOkLmz4Bw50eZx/zJwtBq65nms3N9VBYu5LTjJ883oBFkTyXRlCB/ZGGwqYpJJHA5zW2Ibhl5ngITfow==
 
+"@tabler/icons@^1.88.0":
+  version "1.88.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-1.88.0.tgz#11c95a4f7a40408ac5b1372ed87a5d7c2e451010"
+  integrity sha512-w3kPW16mDIiboBE+2M6pPIsLkebNYhjnrRphiuDAfz+fNs4QbF2NRm3cyk0xzajEhOCg00ZYLBHG1AmzPlZroA==
+
 "@testing-library/dom@^8.5.0":
   version "8.17.1"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-8.17.1.tgz#2d7af4ff6dad8d837630fecd08835aee08320ad7"
