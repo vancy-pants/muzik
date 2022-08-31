@@ -10,6 +10,7 @@ import {
 } from '@mantine/core'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import PageWave from '../../components/PageWave'
 import { Album } from '../../types/common'
 import './Home.scss'
 
@@ -46,12 +47,12 @@ function Home() {
 
   return (
     <Stack id="page-wrapper">
-      <Stack align="center">
+      <Stack align="center" className="page-header">
         <Space h="md" />
         <Title order={1}>Muzik</Title>
         <Space h="md" />
       </Stack>
-      <Space h="md" />
+      <PageWave />
       <Stack align="center">
         {albums.map((album) => (
           <Paper

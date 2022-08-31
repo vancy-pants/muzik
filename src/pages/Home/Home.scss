@@ -1,5 +1,10 @@
 #page-wrapper {
   background-image: linear-gradient(90deg, #ed6ea0 10%, #ec8c69 90%);
+  gap: 0;
+}
+
+.page-header {
+    background-color: white;
 }
 
 .album-card {
