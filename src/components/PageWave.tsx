@@ -1,4 +1,6 @@
 function PageWave() {
+  // * from https://omatsuri.app/page-dividers
+
   return (
     <div style={{ overflow: 'hidden' }}>
       <svg
