@@ -1,4 +1,6 @@
-import { Space, Stack, Title } from '@mantine/core'
+import { Stack, TextInput, Title } from '@mantine/core'
+import { useDebouncedValue } from '@mantine/hooks'
+import { IconSearch } from '@tabler/icons'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import AlbumCard from '../../components/AlbumCard/AlbumCard'
@@ -16,7 +18,8 @@ interface AlbumsResponse {
 }
 
 function Home() {
-  const [albums, setAlbums] = useState<Album[]>([])
+  const [topAlbums, setTopAlbums] = useState<Album[]>([])
+  const [visibleAlbums, setVisibleAlbums] = useState<Album[]>([])
 
   const getAlbums = async () => {
     const albumsResponse: AlbumsResponse = await axios.get(
@@ -32,21 +35,44 @@ function Home() {
       const topAlbums = await getAlbums()
       const cleanedAlbums = cleanAlbums(topAlbums)
       console.log(cleanedAlbums.length)
-      setAlbums(cleanedAlbums)
+      setTopAlbums(cleanedAlbums)
+      setVisibleAlbums(cleanedAlbums)
     })()
   }, [])
 
+  const [searchValue, setSearchValue] = useState('')
+  const [debouncedSearchVal] = useDebouncedValue(searchValue, 200)
+
+  useEffect(() => {
+    if (debouncedSearchVal.length > 0) {
+      const lowerCaseSearchVal = debouncedSearchVal.toLowerCase()
+      const newVisibleAlbums = topAlbums.filter(
+        (album) =>
+          album.artist.toLowerCase().includes(lowerCaseSearchVal) ||
+          album.name.toLowerCase().includes(lowerCaseSearchVal)
+      )
+      setVisibleAlbums(newVisibleAlbums)
+    } else {
+      setVisibleAlbums(topAlbums)
+    }
+  }, [debouncedSearchVal, topAlbums])
+
   return (
     <Stack id="page-wrapper">
-      <Stack align="center" className="page-header">
-        <Space h="md" />
-        <Title order={1}>Muzik</Title>
+      <Stack align="center" className="page-header" pt={20} pb={40}>
+        <Title order={1}>Muzik!</Title>
         <Title order={3}>iTunes Top Albums</Title>
-        <Space h="md" />
+        <TextInput
+          value={searchValue}
+          onChange={(event) => setSearchValue(event.currentTarget.value)}
+          placeholder="Search the top albums..."
+          icon={<IconSearch size={14} />}
+          className="search-input"
+        />
       </Stack>
       <PageWave />
-      <Stack align="center" className="album-list">
-        {albums.map((album) => (
+      <Stack align="center" className="album-list" pb={50}>
+        {visibleAlbums.map((album) => (
           <AlbumCard key={album.id} {...album} />
         ))}
       </Stack>

@@ -1,6 +1,8 @@
 # iTunes Top Albums Challenge
 
-## Requirements
+I'm calling this site "Muzik!" on this first pass.
+
+## Project Requirements
 
 ### Base
 
@@ -16,7 +18,7 @@
 ### Additional
 
 - Use a CSS Framework
-  - I'm using [Mantine](https://mantine.dev/)
+  - I'm using [Mantine](https://mantine.dev/) for the components. I like it for styling too, but the requirements say to use SASS instead
 - Use a JavaScript framework (React, Angular, etc.)
   - I'm using a [React/Typescript app with Vite](https://vitejs.dev/guide/)
 - Use SASS for custom CSS

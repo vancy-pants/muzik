@@ -7,8 +7,17 @@
     $muzik-orange 90%
   ); // * idea from https://omatsuri.app/gradient-generator
   gap: 0;
-}
 
-.page-header {
-  background-color: $muzik-white;
+  .page-header {
+    height: 205px;
+    background-color: $muzik-white;
+
+    .search-input {
+      width: 300px;
+    }
+  }
+
+  .album-list {
+    min-height: calc(100vh - 205px - 132px);
+  }
 }
