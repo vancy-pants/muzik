@@ -5,7 +5,12 @@ import AppRouter from './navigation/AppRouter'
 function App() {
   return (
     <MantineProvider
-      theme={{ fontFamily: 'Helvetica, sans-serif' }}
+      theme={{
+        fontFamily: 'Quicksand, sans-serif',
+        headings: {
+          fontFamily: 'Ubuntu, sans-serif',
+        },
+      }}
       withGlobalStyles
       withNormalizeCSS
     >

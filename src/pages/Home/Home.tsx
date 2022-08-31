@@ -45,7 +45,7 @@ function Home() {
         <Space h="md" />
       </Stack>
       <PageWave />
-      <Stack align="center">
+      <Stack align="center" className="album-list">
         {albums.map((album) => (
           <AlbumCard key={album.id} {...album} />
         ))}
