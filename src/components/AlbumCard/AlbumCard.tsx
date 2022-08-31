@@ -1,5 +1,6 @@
 import { Anchor, Group, Image, Paper, Stack, Text } from '@mantine/core'
-import { Album } from '../types/common'
+import { Album } from '../../types/common'
+import './AlbumCard.scss'
 
 type AlbumCardProps = Omit<Album, 'id'>
 

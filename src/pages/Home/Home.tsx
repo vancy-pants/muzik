@@ -1,7 +1,7 @@
 import { Space, Stack, Title } from '@mantine/core'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import AlbumCard from '../../components/AlbumCard'
+import AlbumCard from '../../components/AlbumCard/AlbumCard'
 import PageWave from '../../components/PageWave'
 import { Album, iTunesAlbum } from '../../types/common'
 import './Home.scss'
