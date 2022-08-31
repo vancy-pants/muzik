@@ -11,13 +11,14 @@ import {
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import PageWave from '../../components/PageWave'
-import { Album } from '../../types/common'
+import { Album, iTunesAlbum } from '../../types/common'
 import './Home.scss'
+import { cleanAlbums } from './Home.utils'
 
 interface AlbumsResponse {
   data: {
     feed: {
-      entry: Album[]
+      entry: iTunesAlbum[]
     }
   }
 }
@@ -31,17 +32,15 @@ function Home() {
       'https://itunes.apple.com/us/rss/topalbums/limit=100/json'
     )
 
-    albumsResponse.data.feed.entry.forEach((e) => {
-      console.log('entry :>> ', e)
-    })
-
     return albumsResponse.data.feed.entry
   }
 
   useEffect(() => {
     void (async () => {
       const topAlbums = await getAlbums()
-      setAlbums(topAlbums)
+      const cleanedAlbums = cleanAlbums(topAlbums)
+      console.log(cleanedAlbums.length)
+      setAlbums(cleanedAlbums)
     })()
   }, [])
 
@@ -56,7 +55,7 @@ function Home() {
       <Stack align="center">
         {albums.map((album) => (
           <Paper
-            key={album.id.attributes['im:id']}
+            key={album.id}
             component={Group}
             shadow="xs"
             p="md"
@@ -65,31 +64,30 @@ function Home() {
           >
             <Image
               radius="md"
-              src={album['im:image'][2].label}
-              alt={`${album['im:name'].label} album cover`}
+              src={album.albumArt}
+              alt={`${album.artist} album cover`}
               width={150}
             />
             <Stack className="album-info">
               <Text size="lg" weight={700}>
-                Album Name: {album['im:name'].label}
+                Album Name: {album.name}
               </Text>
               <Text>
                 Artist:{' '}
-                {album['im:artist'].attributes &&
-                album['im:artist'].attributes.href ? (
+                {album.artistLink ? (
                   <Anchor
-                    href={album['im:artist'].attributes.href}
+                    href={album.artistLink}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {album['im:artist'].label}
+                    {album.artist}
                   </Anchor>
                 ) : (
-                  album['im:artist'].label
+                  album.artist
                 )}
               </Text>
-              <Text>Track Count: {album['im:itemCount'].label}</Text>
-              <Text>Price: {album['im:price'].label}</Text>
+              <Text>Track Count: {album.trackCount}</Text>
+              <Text>Price: {album.price}</Text>
             </Stack>
           </Paper>
         ))}

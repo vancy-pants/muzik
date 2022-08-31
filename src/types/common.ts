@@ -1,4 +1,4 @@
-export interface Album {
+export interface iTunesAlbum {
   'im:name': {
     label: string
   }
@@ -27,4 +27,14 @@ export interface Album {
       'im:id': string
     }
   }
+}
+
+export interface Album {
+  id: string
+  name: string
+  albumArt: string
+  trackCount: number
+  price: string
+  artist: string
+  artistLink: string
 }
