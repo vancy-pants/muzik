@@ -26,7 +26,9 @@ I'm calling this site "Muzik!" on this first pass.
 - Make use of CSS animations
   - TODO
 - Allow the top 100 to be searchable
-  - TODO
+  - Done! Though I don't know if I quite understood this requirement...
+  - I didn't see any API info about searching based on the top iTunes albums, so I just used some debounced searching of the already-fetched values using the normal JS array filter method.
+  - Note: I'm adding some more expansive album searching on a separate search page though, so hopefully that will also be helpful to review!
 - Allow the user to see more information about a selected Album
   - TODO
 - Host the website on the service of your choice
