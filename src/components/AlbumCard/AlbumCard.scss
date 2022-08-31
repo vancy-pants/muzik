@@ -1,16 +1,35 @@
 @import '../../assets/variables.scss';
 
+$album-image-height: 170px;
+
 .album-card {
   width: 100%;
   max-width: 600px;
   display: flex;
   align-items: flex-start;
+  border: none;
+  border-radius: 8px;
 
   @media (max-width: $breakpoint-md) {
     max-width: 600px;
   }
-}
 
-.album-info {
-  display: flex;
+  .album-image {
+    img {
+      height: $album-image-height;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .album-info {
+    display: flex;
+    width: calc(600px - $album-image-height - 16px);
+
+    .album-text {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
 }

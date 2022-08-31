@@ -18,13 +18,13 @@ function AlbumCard({
         radius="md"
         src={albumArt}
         alt={`${artist} album cover`}
-        width={150}
+        className="album-image"
       />
-      <Stack className="album-info">
-        <Text size="lg" weight={700}>
+      <Stack className="album-info" py={10} pr={10}>
+        <Text size="lg" weight={700} className="album-text">
           Album Name: {name}
         </Text>
-        <Text>
+        <Text className="album-text">
           Artist:{' '}
           {artistLink ? (
             <Anchor href={artistLink} target="_blank" rel="noopener noreferrer">
@@ -34,8 +34,8 @@ function AlbumCard({
             artist
           )}
         </Text>
-        <Text>Track Count: {trackCount}</Text>
-        <Text>Price: {price}</Text>
+        <Text className="album-text">Track Count: {trackCount}</Text>
+        <Text className="album-text">Price: {price}</Text>
       </Stack>
     </Paper>
   )
