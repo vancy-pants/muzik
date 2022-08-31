@@ -1,15 +1,7 @@
-import {
-  Anchor,
-  Group,
-  Image,
-  Paper,
-  Space,
-  Stack,
-  Text,
-  Title,
-} from '@mantine/core'
+import { Space, Stack, Title } from '@mantine/core'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import AlbumCard from '../../components/AlbumCard'
 import PageWave from '../../components/PageWave'
 import { Album, iTunesAlbum } from '../../types/common'
 import './Home.scss'
@@ -49,47 +41,13 @@ function Home() {
       <Stack align="center" className="page-header">
         <Space h="md" />
         <Title order={1}>Muzik</Title>
+        <Title order={3}>iTunes Top Albums</Title>
         <Space h="md" />
       </Stack>
       <PageWave />
       <Stack align="center">
         {albums.map((album) => (
-          <Paper
-            key={album.id}
-            component={Group}
-            shadow="xs"
-            p="md"
-            withBorder
-            className="album-card"
-          >
-            <Image
-              radius="md"
-              src={album.albumArt}
-              alt={`${album.artist} album cover`}
-              width={150}
-            />
-            <Stack className="album-info">
-              <Text size="lg" weight={700}>
-                Album Name: {album.name}
-              </Text>
-              <Text>
-                Artist:{' '}
-                {album.artistLink ? (
-                  <Anchor
-                    href={album.artistLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {album.artist}
-                  </Anchor>
-                ) : (
-                  album.artist
-                )}
-              </Text>
-              <Text>Track Count: {album.trackCount}</Text>
-              <Text>Price: {album.price}</Text>
-            </Stack>
-          </Paper>
+          <AlbumCard key={album.id} {...album} />
         ))}
       </Stack>
     </Stack>
