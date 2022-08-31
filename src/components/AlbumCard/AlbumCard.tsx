@@ -25,7 +25,7 @@ function AlbumCard({
           Album Name: {name}
         </Text>
         <Text className="album-text">
-          Artist:{' '}
+          {artist.includes(',') ? 'Artists' : 'Artist'}:{' '}
           {artistLink ? (
             <Anchor href={artistLink} target="_blank" rel="noopener noreferrer">
               {artist}
@@ -34,7 +34,7 @@ function AlbumCard({
             artist
           )}
         </Text>
-        <Text className="album-text">Track Count: {trackCount}</Text>
+        <Text className="album-text">Tracks: {trackCount}</Text>
         <Text className="album-text">Price: {price}</Text>
       </Stack>
     </Paper>
