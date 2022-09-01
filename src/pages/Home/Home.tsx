@@ -1,4 +1,4 @@
-import { Stack, TextInput, Title } from '@mantine/core'
+import { Space, Stack, TextInput, Title } from '@mantine/core'
 import { useDebouncedValue } from '@mantine/hooks'
 import { IconSearch } from '@tabler/icons'
 import axios from 'axios'
@@ -62,6 +62,9 @@ function Home() {
       <Stack align="center" className="page-header" pt={20} pb={40}>
         <Title order={1}>Muzik!</Title>
         <Title order={3}>iTunes Top Albums</Title>
+      </Stack>
+      <PageWave />
+      <Stack align="center" className="album-list" pb={50}>
         <TextInput
           value={searchValue}
           onChange={(event) => setSearchValue(event.currentTarget.value)}
@@ -69,9 +72,7 @@ function Home() {
           icon={<IconSearch size={14} />}
           className="search-input"
         />
-      </Stack>
-      <PageWave />
-      <Stack align="center" className="album-list" pb={50}>
+        <Space />
         {visibleAlbums.map((album) => (
           <AlbumCard key={album.id} {...album} />
         ))}
