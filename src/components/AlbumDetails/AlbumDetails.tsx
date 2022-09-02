@@ -31,6 +31,7 @@ function AlbumDetails({
           alt={`${artist} album cover`}
           className="album-image"
         />
+        {/* //TODO: album name too wide? Wrap? */}
         <Text size="lg" weight={700} className="album-text">
           Album Name:{' '}
           {albumLink ? (
@@ -55,6 +56,7 @@ function AlbumDetails({
         <Text className="album-text">Price: ${price}</Text>
         <Text className="album-text">Genre: {genre}</Text>
         <Text className="album-text">Country: {country}</Text>
+        {/* // TODO: dayjs to manipulate date */}
         <Text className="album-text">Release Date: {releaseDate}</Text>
         {isExplicit && <Text className="album-text">Explicit</Text>}
       </Stack>
