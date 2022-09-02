@@ -5,9 +5,26 @@ import './PageWrapper.scss'
 
 interface PageWrapperProps {
   title: string
+  isLoading: boolean
+  isError: boolean
 }
 
-function PageWrapper({ title, children }: PropsWithChildren<PageWrapperProps>) {
+function PageWrapper({
+  title,
+  isLoading,
+  isError,
+  children,
+}: PropsWithChildren<PageWrapperProps>) {
+  const pageContent = () => {
+    if (isLoading) {
+      return <div>Loading...</div>
+    }
+    if (isError) {
+      return <div>Error!!</div>
+    }
+    return children
+  }
+
   return (
     <Stack id="page-wrapper">
       <Stack align="center" className="page-header" pt={20} pb={40}>
@@ -16,7 +33,7 @@ function PageWrapper({ title, children }: PropsWithChildren<PageWrapperProps>) {
         </Title>
       </Stack>
       <PageWave />
-      <div className="page-content">{children}</div>
+      <div className="page-content">{pageContent()}</div>
     </Stack>
   )
 }

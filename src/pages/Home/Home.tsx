@@ -2,10 +2,11 @@ import { Space, Stack, TextInput } from '@mantine/core'
 import { useDebouncedValue } from '@mantine/hooks'
 import { IconSearch } from '@tabler/icons'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import AlbumCard from '../../components/AlbumCard/AlbumCard'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
-import { MuzikAlbum, iTunesTopAlbum } from '../../types/common'
+import useRequestStatus from '../../hooks/useRequestStatus'
+import { iTunesTopAlbum, MuzikAlbum } from '../../types/common'
 import './Home.scss'
 import { cleanAlbums } from './Home.utils'
 
@@ -20,15 +21,23 @@ interface AlbumsResponse {
 function Home() {
   const [topAlbums, setTopAlbums] = useState<MuzikAlbum[]>([])
   const [visibleAlbums, setVisibleAlbums] = useState<MuzikAlbum[]>([])
+  const { isLoading, setIsLoading, isError, setIsError } = useRequestStatus()
 
-  const getAlbums = async () => {
-    const albumsResponse: AlbumsResponse = await axios.get(
-      // * seems to max out at 65 entries...
-      'https://itunes.apple.com/us/rss/topalbums/limit=100/json'
-    )
+  const getAlbums = useCallback(async () => {
+    try {
+      const albumsResponse: AlbumsResponse = await axios.get(
+        // * seems to max out at 65 entries...
+        'https://itunes.apple.com/us/rss/topalbums/limit=100/json'
+      )
 
-    return albumsResponse.data.feed.entry
-  }
+      return albumsResponse.data.feed.entry
+    } catch {
+      setIsError(true)
+      return []
+    } finally {
+      setIsLoading(false)
+    }
+  }, [setIsLoading, setIsError])
 
   useEffect(() => {
     void (async () => {
@@ -38,7 +47,7 @@ function Home() {
       setTopAlbums(cleanedAlbums)
       setVisibleAlbums(cleanedAlbums)
     })()
-  }, [])
+  }, [getAlbums])
 
   const [searchValue, setSearchValue] = useState('')
   const [debouncedSearchVal] = useDebouncedValue(searchValue, 200)
@@ -58,7 +67,11 @@ function Home() {
   }, [debouncedSearchVal, topAlbums])
 
   return (
-    <PageWrapper title="iTunes Top Albums">
+    <PageWrapper
+      title="iTunes Top Albums"
+      isLoading={isLoading}
+      isError={isError}
+    >
       <Stack align="center" className="album-list">
         <TextInput
           value={searchValue}
