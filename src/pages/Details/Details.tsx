@@ -1,7 +1,7 @@
-import { Stack } from '@mantine/core'
+import { Button, Stack } from '@mantine/core'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import AlbumDetails from '../../components/AlbumDetails/AlbumDetails'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import { MuzikAlbum, SearchedAlbumsResponse } from '../../types/common'
@@ -10,6 +10,7 @@ import { mapAlbumDetails } from './Details.utils'
 
 function Details() {
   const { albumId } = useParams()
+  const navigate = useNavigate()
   const [albumInfo, setAlbumInfo] = useState<MuzikAlbum>()
 
   useEffect(() => {
@@ -37,6 +38,7 @@ function Details() {
   return (
     <PageWrapper title="Album Details">
       <Stack align="center" className="album-details-section">
+        <Button onClick={() => navigate(-1)}>Back to Top Albums</Button>
         {albumInfo && <AlbumDetails {...albumInfo} />}
       </Stack>
     </PageWrapper>
