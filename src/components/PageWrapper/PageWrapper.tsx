@@ -1,6 +1,7 @@
 import { Stack, Title } from '@mantine/core'
 import { PropsWithChildren } from 'react'
 import PageWave from '../PageWave'
+import './PageWrapper.scss'
 
 interface PageWrapperProps {
   title: string

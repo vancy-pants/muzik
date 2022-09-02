@@ -23,7 +23,6 @@ function AlbumDetails({
       shadow="xs"
       withBorder
       className="album-details-card"
-      mb={50}
     >
       <Stack align="center" className="album-info" py={10} pr={10}>
         <Image

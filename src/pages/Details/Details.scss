@@ -1,5 +1,5 @@
 @import '../../assets/variables.scss';
 
 .album-details-section {
-  min-height: calc(100vh - 205px - 132px);
+  @include page-content;
 }
