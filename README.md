@@ -36,3 +36,9 @@ I'm calling this site "Muzik!" on this first pass.
 - Surprise us! Add a feature that you think would work well here (for instance, advanced search,
   integration with other API, a "Favorite" functionality)
   - TODO
+
+## TODO
+
+- Improve scroll behavior
+  - Currently the pages stay at the same scroll depth on navigation, which I think could be improved
+  - using some `useRef` hooks and `forwardRef` to achieve this would be how I would go about it
