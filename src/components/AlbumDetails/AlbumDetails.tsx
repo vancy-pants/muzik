@@ -23,14 +23,15 @@ function AlbumDetails({
       shadow="xs"
       withBorder
       className="album-details-card"
+      mb={50}
     >
-      <Image
-        radius="md"
-        src={albumArt}
-        alt={`${artist} album cover`}
-        className="album-image"
-      />
-      <Stack className="album-info" py={10} pr={10}>
+      <Stack align="center" className="album-info" py={10} pr={10}>
+        <Image
+          radius="md"
+          src={albumArt}
+          alt={`${artist} album cover`}
+          className="album-image"
+        />
         <Text size="lg" weight={700} className="album-text">
           Album Name:{' '}
           {albumLink ? (
@@ -52,7 +53,7 @@ function AlbumDetails({
           )}
         </Text>
         <Text className="album-text">Tracks: {trackCount}</Text>
-        <Text className="album-text">Price: {price}</Text>
+        <Text className="album-text">Price: ${price}</Text>
         <Text className="album-text">Genre: {genre}</Text>
         <Text className="album-text">Country: {country}</Text>
         <Text className="album-text">Release Date: {releaseDate}</Text>
