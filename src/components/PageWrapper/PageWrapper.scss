@@ -1,0 +1,23 @@
+@import '../../assets/variables.scss';
+
+#page-wrapper {
+  background-image: linear-gradient(
+    90deg,
+    $muzik-pink 10%,
+    $muzik-orange 90%
+  ); // * idea from https://omatsuri.app/gradient-generator
+  gap: 0;
+
+  .page-header {
+    height: 205px;
+    background-color: $muzik-white;
+  }
+
+  .album-list {
+    min-height: calc(100vh - 205px - 132px);
+
+    .search-input {
+      width: 300px;
+    }
+  }
+}

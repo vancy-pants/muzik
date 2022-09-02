@@ -1,0 +1,42 @@
+@import '../../assets/variables.scss';
+
+$album-image-height: 170px;
+
+.album-details-card {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: flex-start;
+  border: none;
+  border-radius: 8px;
+
+  @media (max-width: $breakpoint-md) {
+    max-width: 600px;
+  }
+
+  .album-image {
+    img {
+      height: $album-image-height;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .album-info {
+    display: flex;
+    width: calc(600px - $album-image-height - 16px);
+    position: relative;
+
+    .album-text {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .view-more-button {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+}
