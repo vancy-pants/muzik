@@ -1,6 +1,6 @@
-import { Album, iTunesTopAlbumResponse } from '../../types/common'
+import { MuzikAlbum, iTunesTopAlbum } from '../../types/common'
 
-export const cleanAlbums = (albums: iTunesTopAlbumResponse[]): Album[] => {
+export const cleanAlbums = (albums: iTunesTopAlbum[]): MuzikAlbum[] => {
   return albums.map((album) => ({
     id: album.id.attributes['im:id'],
     name: album['im:name'].label,

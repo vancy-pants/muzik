@@ -5,21 +5,21 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import AlbumCard from '../../components/AlbumCard/AlbumCard'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
-import { Album, iTunesTopAlbumResponse } from '../../types/common'
+import { MuzikAlbum, iTunesTopAlbum } from '../../types/common'
 import './Home.scss'
 import { cleanAlbums } from './Home.utils'
 
 interface AlbumsResponse {
   data: {
     feed: {
-      entry: iTunesTopAlbumResponse[]
+      entry: iTunesTopAlbum[]
     }
   }
 }
 
 function Home() {
-  const [topAlbums, setTopAlbums] = useState<Album[]>([])
-  const [visibleAlbums, setVisibleAlbums] = useState<Album[]>([])
+  const [topAlbums, setTopAlbums] = useState<MuzikAlbum[]>([])
+  const [visibleAlbums, setVisibleAlbums] = useState<MuzikAlbum[]>([])
 
   const getAlbums = async () => {
     const albumsResponse: AlbumsResponse = await axios.get(

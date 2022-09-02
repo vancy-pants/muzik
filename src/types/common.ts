@@ -1,4 +1,4 @@
-export interface iTunesAlbum {
+export interface iTunesTopAlbum {
   'im:name': {
     label: string
   }
@@ -29,7 +29,29 @@ export interface iTunesAlbum {
   }
 }
 
-export interface Album {
+export interface SearchedAlbumsResponse {
+  data: {
+    results: iTunesSearchedAlbum[]
+  }
+}
+
+export interface iTunesSearchedAlbum {
+  collectionId: number
+  artistName: string
+  collectionName: string
+  artistViewUrl: string
+  collectionViewUrl: string
+  artworkUrl100: string
+  collectionPrice: string
+  collectionExplicitness: string
+  trackCount: number
+  country: string
+  currency: string
+  releaseDate: string
+  primaryGenreName: string
+}
+
+export interface MuzikAlbum {
   id: string
   name: string
   albumArt: string
@@ -37,4 +59,9 @@ export interface Album {
   price: string
   artist: string
   artistLink: string
+  albumLink?: string
+  isExplicit?: boolean
+  country?: string
+  releaseDate?: string
+  genre?: string
 }

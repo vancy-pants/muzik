@@ -1,6 +1,6 @@
 import { Anchor, Button, Group, Image, Paper, Stack, Text } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
-import { Album } from '../../types/common'
+import { MuzikAlbum } from '../../types/common'
 import './AlbumCard.scss'
 
 function AlbumCard({
@@ -11,7 +11,7 @@ function AlbumCard({
   artistLink,
   trackCount,
   price,
-}: Album) {
+}: MuzikAlbum) {
   const navigate = useNavigate()
 
   const handleViewDetails = () => {

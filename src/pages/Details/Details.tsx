@@ -2,19 +2,20 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
+import { SearchedAlbumsResponse } from '../../types/common'
+import { mapAlbumDetails } from './Details.utils'
 
 function Details() {
   const { albumId } = useParams()
 
-  console.log('albumId :>> ', albumId)
-
   useEffect(() => {
     const getAlbumDetails = async () => {
-      const albumDetailsResponse: any = await axios.get(
+      const albumDetailsResponse: SearchedAlbumsResponse = await axios.get(
         `https://itunes.apple.com/search?term=${albumId}&entity=album`
       )
 
-      console.log(albumDetailsResponse)
+      console.log(albumDetailsResponse.data.results[0])
+      console.log(mapAlbumDetails(albumDetailsResponse.data.results[0]))
     }
 
     void (async () => {
