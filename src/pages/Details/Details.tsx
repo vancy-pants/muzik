@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import PageWrapper from '../../components/PageWrapper/PageWrapper'
 
 function Details() {
   const { albumId } = useParams()
@@ -23,7 +24,11 @@ function Details() {
     })()
   }, [albumId])
 
-  return <div>Details Page</div>
+  return (
+    <PageWrapper>
+      <div>Details Page</div>
+    </PageWrapper>
+  )
 }
 
 export default Details

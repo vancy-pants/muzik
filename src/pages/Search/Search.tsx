@@ -1,4 +1,5 @@
 import axios from 'axios'
+import PageWrapper from '../../components/PageWrapper/PageWrapper'
 
 function Search() {
   const searchItunes = async () => {
@@ -10,11 +11,13 @@ function Search() {
     console.log(searchResponse)
   }
   return (
-    <div>
-      Search page
-      {/*  eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-      <button onClick={searchItunes}>search</button>
-    </div>
+    <PageWrapper>
+      <div>
+        Search page
+        {/*  eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+        <button onClick={searchItunes}>search</button>
+      </div>
+    </PageWrapper>
   )
 }
 

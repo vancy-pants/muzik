@@ -1,10 +1,10 @@
-import { Space, Stack, TextInput, Title } from '@mantine/core'
+import { Space, Stack, TextInput } from '@mantine/core'
 import { useDebouncedValue } from '@mantine/hooks'
 import { IconSearch } from '@tabler/icons'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import AlbumCard from '../../components/AlbumCard/AlbumCard'
-import PageWave from '../../components/PageWave'
+import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import { Album, iTunesTopAlbumResponse } from '../../types/common'
 import './Home.scss'
 import { cleanAlbums } from './Home.utils'
@@ -58,12 +58,7 @@ function Home() {
   }, [debouncedSearchVal, topAlbums])
 
   return (
-    <Stack id="page-wrapper">
-      <Stack align="center" className="page-header" pt={20} pb={40}>
-        <Title order={1}>Muzik!</Title>
-        <Title order={3}>iTunes Top Albums</Title>
-      </Stack>
-      <PageWave />
+    <PageWrapper>
       <Stack align="center" className="album-list" pb={50}>
         <TextInput
           value={searchValue}
@@ -77,7 +72,7 @@ function Home() {
           <AlbumCard key={album.id} {...album} />
         ))}
       </Stack>
-    </Stack>
+    </PageWrapper>
   )
 }
 
