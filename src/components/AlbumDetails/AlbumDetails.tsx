@@ -1,4 +1,5 @@
 import { Anchor, Group, Image, Paper, Stack, Text } from '@mantine/core'
+import dayjs from 'dayjs'
 import { MuzikAlbum } from '../../types/common'
 import './AlbumDetails.scss'
 
@@ -56,8 +57,9 @@ function AlbumDetails({
         <Text className="album-text">Price: ${price}</Text>
         <Text className="album-text">Genre: {genre}</Text>
         <Text className="album-text">Country: {country}</Text>
-        {/* // TODO: dayjs to manipulate date */}
-        <Text className="album-text">Release Date: {releaseDate}</Text>
+        <Text className="album-text">
+          Release Date: {dayjs(releaseDate).format('MMM D, YYYY')}
+        </Text>
         {isExplicit && <Text className="album-text">Explicit</Text>}
       </Stack>
     </Paper>
