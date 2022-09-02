@@ -1,17 +1,23 @@
-import { Anchor, Group, Image, Paper, Stack, Text } from '@mantine/core'
+import { Anchor, Button, Group, Image, Paper, Stack, Text } from '@mantine/core'
+import { useNavigate } from 'react-router-dom'
 import { Album } from '../../types/common'
 import './AlbumCard.scss'
 
-type AlbumCardProps = Omit<Album, 'id'>
-
 function AlbumCard({
+  id,
   name,
   albumArt,
   artist,
   artistLink,
   trackCount,
   price,
-}: AlbumCardProps) {
+}: Album) {
+  const navigate = useNavigate()
+
+  const handleViewDetails = () => {
+    navigate(`details/${id}`)
+  }
+
   return (
     <Paper component={Group} shadow="xs" withBorder className="album-card">
       <Image
@@ -36,6 +42,15 @@ function AlbumCard({
         </Text>
         <Text className="album-text">Tracks: {trackCount}</Text>
         <Text className="album-text">Price: {price}</Text>
+        <Button
+          compact
+          variant="gradient"
+          className="view-more-button"
+          gradient={{ from: '#ed6ea0', to: '#ec8c69' }}
+          onClick={handleViewDetails}
+        >
+          View Details
+        </Button>
       </Stack>
     </Paper>
   )
