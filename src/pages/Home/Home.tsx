@@ -5,14 +5,14 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import AlbumCard from '../../components/AlbumCard/AlbumCard'
 import PageWave from '../../components/PageWave'
-import { Album, iTunesAlbum } from '../../types/common'
+import { Album, iTunesTopAlbumResponse } from '../../types/common'
 import './Home.scss'
 import { cleanAlbums } from './Home.utils'
 
 interface AlbumsResponse {
   data: {
     feed: {
-      entry: iTunesAlbum[]
+      entry: iTunesTopAlbumResponse[]
     }
   }
 }
@@ -34,7 +34,7 @@ function Home() {
     void (async () => {
       const topAlbums = await getAlbums()
       const cleanedAlbums = cleanAlbums(topAlbums)
-      console.log(cleanedAlbums.length)
+
       setTopAlbums(cleanedAlbums)
       setVisibleAlbums(cleanedAlbums)
     })()
