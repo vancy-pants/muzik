@@ -11,7 +11,7 @@ function Search() {
     console.log(searchResponse)
   }
   return (
-    <PageWrapper>
+    <PageWrapper title="Search All iTunes Albums">
       <div>
         Search page
         {/*  eslint-disable-next-line @typescript-eslint/no-misused-promises */}

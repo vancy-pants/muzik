@@ -58,7 +58,7 @@ function Home() {
   }, [debouncedSearchVal, topAlbums])
 
   return (
-    <PageWrapper>
+    <PageWrapper title="iTunes Top Albums">
       <Stack align="center" className="album-list" pb={50}>
         <TextInput
           value={searchValue}

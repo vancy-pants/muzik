@@ -25,7 +25,7 @@ function Details() {
   }, [albumId])
 
   return (
-    <PageWrapper>
+    <PageWrapper title="Album Details">
       <div>Details Page</div>
     </PageWrapper>
   )
