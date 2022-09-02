@@ -12,6 +12,10 @@
   .page-header {
     height: 205px;
     background-color: $muzik-white;
+
+    @media (max-width: $breakpoint-md) {
+      height: 100px;
+    }
   }
 
   .page-content {

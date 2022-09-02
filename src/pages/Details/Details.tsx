@@ -5,7 +5,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import AlbumDetails from '../../components/AlbumDetails/AlbumDetails'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import { MuzikAlbum, SearchedAlbumsResponse } from '../../types/common'
-import './Details.scss'
 import { mapAlbumDetails } from './Details.utils'
 
 function Details() {

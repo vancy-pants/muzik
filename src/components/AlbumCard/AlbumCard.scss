@@ -12,7 +12,12 @@ $album-image-height: 170px;
   position: relative;
 
   @media (max-width: $breakpoint-md) {
-    max-width: 600px;
+    max-width: 500px;
+    justify-content: center;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    max-width: 90%;
   }
 
   .album-rank {
@@ -25,6 +30,11 @@ $album-image-height: 170px;
     left: -10px;
     z-index: 10;
     border-radius: 4px;
+
+    @media (max-width: $breakpoint-md) {
+      background-color: $muzik-orange;
+      color: $muzik-white;
+    }
   }
 
   .album-image {
@@ -32,6 +42,11 @@ $album-image-height: 170px;
       height: $album-image-height;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+
+      @media (max-width: $breakpoint-md) {
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 8px;
+      }
     }
   }
 
@@ -40,16 +55,28 @@ $album-image-height: 170px;
     width: calc(600px - $album-image-height - 16px);
     position: relative;
 
+    @media (max-width: $breakpoint-md) {
+      align-items: center;
+      width: 100%;
+    }
+
     .album-text {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      max-width: 80%;
     }
 
     .view-more-button {
       position: absolute;
       bottom: 10px;
       right: 10px;
+
+      @media (max-width: $breakpoint-md) {
+        position: relative;
+        bottom: unset;
+        right: unset;
+      }
     }
   }
 }

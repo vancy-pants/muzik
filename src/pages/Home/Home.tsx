@@ -59,7 +59,7 @@ function Home() {
 
   return (
     <PageWrapper title="iTunes Top Albums">
-      <Stack align="center" className="album-list" pb={50}>
+      <Stack align="center" className="album-list">
         <TextInput
           value={searchValue}
           onChange={(event) => setSearchValue(event.currentTarget.value)}

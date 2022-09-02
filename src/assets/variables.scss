@@ -13,5 +13,9 @@ $muzik-orange: #ec8c69;
 @mixin search-input {
   .search-input {
     width: 300px;
+
+    @media (max-width: $breakpoint-sm) {
+      width: 90%;
+    }
   }
 }
