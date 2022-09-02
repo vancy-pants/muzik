@@ -4,7 +4,7 @@ import { MuzikAlbum } from '../../types/common'
 import './AlbumCard.scss'
 
 interface AlbumCardProps extends MuzikAlbum {
-  rank: number
+  rank?: number // searched albums won't have a rank
 }
 
 function AlbumCard({
@@ -25,9 +25,11 @@ function AlbumCard({
 
   return (
     <Paper component={Group} shadow="xs" withBorder className="album-card">
-      <Text align="center" className="album-rank">
-        {rank}
-      </Text>
+      {rank && (
+        <Text align="center" className="album-rank">
+          {rank}
+        </Text>
+      )}
       <Image
         radius="md"
         src={albumArt}

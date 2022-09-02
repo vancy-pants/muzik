@@ -1,0 +1,9 @@
+@import '../../assets/variables.scss';
+
+.album-list {
+  @include page-content;
+
+  .search-input {
+    width: 300px;
+  }
+}
