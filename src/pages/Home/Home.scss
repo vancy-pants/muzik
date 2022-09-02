@@ -1,7 +1,5 @@
 @import '../../assets/variables.scss';
 
 .album-list {
-  .search-input {
-    width: 300px;
-  }
+  @include search-input;
 }
