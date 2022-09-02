@@ -1,6 +1,7 @@
 import { Stack, Title } from '@mantine/core'
 import { PropsWithChildren } from 'react'
 import Error from '../Error/Error'
+import Loading from '../Loading/Loading'
 import PageWave from '../PageWave'
 import './PageWrapper.scss'
 
@@ -18,7 +19,7 @@ function PageWrapper({
 }: PropsWithChildren<PageWrapperProps>) {
   const pageContent = () => {
     if (isLoading) {
-      return <div>Loading...</div>
+      return <Loading />
     }
     if (isError) {
       return <Error />
