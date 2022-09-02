@@ -25,7 +25,7 @@ function AlbumDetails({
       withBorder
       className="album-details-card"
     >
-      <Stack align="center" className="album-info" py={10} pr={10}>
+      <Stack align="center" className="album-info" px={10} pb={10}>
         <Image
           radius="md"
           src={albumArt}

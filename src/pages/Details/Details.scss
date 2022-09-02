@@ -1,8 +1,6 @@
 @import '../../assets/variables.scss';
 
-.album-list {
-  @include search-input;
-
+.album-details-section {
   .no-results-text {
     color: $muzik-white;
   }

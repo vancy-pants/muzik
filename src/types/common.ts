@@ -31,6 +31,7 @@ export interface iTunesTopAlbum {
 
 export interface SearchedAlbumsResponse {
   data: {
+    resultCount: number
     results: iTunesSearchedAlbum[]
   }
 }

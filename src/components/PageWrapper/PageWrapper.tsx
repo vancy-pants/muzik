@@ -1,26 +1,20 @@
 import { Stack, Title } from '@mantine/core'
 import { PropsWithChildren } from 'react'
 import Error from '../Error/Error'
-import Loading from '../Loading/Loading'
 import PageWave from '../PageWave'
 import './PageWrapper.scss'
 
 interface PageWrapperProps {
   title: string
-  isLoading: boolean
   isError: boolean
 }
 
 function PageWrapper({
   title,
-  isLoading,
   isError,
   children,
 }: PropsWithChildren<PageWrapperProps>) {
   const pageContent = () => {
-    if (isLoading) {
-      return <Loading />
-    }
     if (isError) {
       return <Error />
     }

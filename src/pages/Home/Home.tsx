@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import AlbumCard from '../../components/AlbumCard/AlbumCard'
+import Loading from '../../components/Loading/Loading'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import useRequestStatus from '../../hooks/useRequestStatus'
 import { iTunesTopAlbum, MuzikAlbum } from '../../types/common'
@@ -70,7 +71,6 @@ function Home() {
   return (
     <PageWrapper
       title="iTunes Top Albums"
-      isLoading={isLoading}
       isError={isError}
     >
       <Stack align="center" className="album-list">
@@ -85,9 +85,13 @@ function Home() {
           Or, search all iTunes albums!
         </Anchor>
         <Space />
-        {visibleAlbums.map((album, index) => (
-          <AlbumCard rank={index + 1} key={album.id} {...album} />
-        ))}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          visibleAlbums.map((album, index) => (
+            <AlbumCard rank={index + 1} key={album.id} {...album} />
+          ))
+        )}
       </Stack>
     </PageWrapper>
   )

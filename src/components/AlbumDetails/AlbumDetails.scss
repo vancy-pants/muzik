@@ -1,6 +1,6 @@
 @import '../../assets/variables.scss';
 
-$album-image-height: 200px;
+$album-image-height: 120px;
 
 .album-details-card {
   width: 100%;
@@ -18,6 +18,8 @@ $album-image-height: 200px;
     .album-image {
       img {
         height: $album-image-height !important;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
       }
     }
 

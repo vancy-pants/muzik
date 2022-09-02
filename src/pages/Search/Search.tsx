@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AlbumCard from '../../components/AlbumCard/AlbumCard'
+import Loading from '../../components/Loading/Loading'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import useRequestStatus from '../../hooks/useRequestStatus'
 import { MuzikAlbum, SearchedAlbumsResponse } from '../../types/common'
@@ -62,7 +63,7 @@ function Search() {
     albums.length === 0
 
   return (
-    <PageWrapper title="Album Details" isLoading={isLoading} isError={isError}>
+    <PageWrapper title="Album Details" isError={isError}>
       <Stack align="center" className="album-list">
         <Button onClick={() => navigate('/')}>Back to Top Albums</Button>
         <TextInput
@@ -72,8 +73,12 @@ function Search() {
           icon={<IconSearch size={14} />}
           className="search-input"
         />
-        {noResults ? (
-          <Text>No results found...</Text>
+        {isLoading ? (
+          <Loading />
+        ) : noResults ? (
+          <Text size="xl" className="no-results-text">
+            No results found...
+          </Text>
         ) : (
           albums.map((album) => <AlbumCard key={album.id} {...album} />)
         )}
