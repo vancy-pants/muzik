@@ -44,7 +44,7 @@ function Search() {
   return (
     <PageWrapper title="Album Details">
       <Stack align="center" className="album-list">
-        <Button onClick={() => navigate(-1)}>Back to Top Albums</Button>
+        <Button onClick={() => navigate('/')}>Back to Top Albums</Button>
         <TextInput
           value={searchValue}
           onChange={(event) => setSearchValue(event.currentTarget.value)}

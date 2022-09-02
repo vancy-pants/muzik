@@ -20,7 +20,7 @@ function AlbumCard({
   const navigate = useNavigate()
 
   const handleViewDetails = () => {
-    navigate(`details/${id}`)
+    navigate(`/details/${id}`)
   }
 
   return (

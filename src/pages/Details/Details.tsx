@@ -38,7 +38,7 @@ function Details() {
   return (
     <PageWrapper title="Album Details">
       <Stack align="center" className="album-details-section">
-        <Button onClick={() => navigate(-1)}>Back to Top Albums</Button>
+        <Button onClick={() => navigate('/')}>Back to Top Albums</Button>
         {albumInfo && <AlbumDetails {...albumInfo} />}
       </Stack>
     </PageWrapper>
