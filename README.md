@@ -24,7 +24,7 @@ I'm calling this site "Muzik!" on this first pass.
 - Use SASS for custom CSS
   - Done!
 - Make use of CSS animations
-  - TODO
+  - The `Loading` component spinner uses animation
 - Allow the top 100 to be searchable
   - Done! Though I don't know if I quite understood this requirement...
   - I didn't see any API info about searching based on the top iTunes albums, so I just used some debounced searching of the already-fetched values using the normal JS array filter method.
