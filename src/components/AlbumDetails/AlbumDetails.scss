@@ -17,7 +17,7 @@ $album-image-height: 200px;
 
     .album-image {
       img {
-        height: $album-image-height;
+        height: $album-image-height !important;
       }
     }
 

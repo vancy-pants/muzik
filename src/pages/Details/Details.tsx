@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import AlbumDetails from '../../components/AlbumDetails/AlbumDetails'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
+import useRequestStatus from '../../hooks/useRequestStatus'
 import { MuzikAlbum, SearchedAlbumsResponse } from '../../types/common'
 import { mapAlbumDetails } from './Details.utils'
 
@@ -11,6 +12,7 @@ function Details() {
   const { albumId } = useParams()
   const navigate = useNavigate()
   const [albumInfo, setAlbumInfo] = useState<MuzikAlbum>()
+  const { isLoading, setIsLoading, isError, setIsError } = useRequestStatus()
 
   useEffect(() => {
     const getAlbumDetails = async () => {
@@ -18,12 +20,19 @@ function Details() {
         return undefined
       }
 
-      const albumDetailsResponse: SearchedAlbumsResponse = await axios.get(
-        `https://itunes.apple.com/search?term=${albumId}&entity=album`
-      )
+      try {
+        const albumDetailsResponse: SearchedAlbumsResponse = await axios.get(
+          `https://itunes.apple.com/search?term=${albumId}&entity=album`
+        )
 
-      // TODO: what if more than one comes?
-      return mapAlbumDetails(albumDetailsResponse.data.results[0])
+        // TODO: what if more than one comes?
+        return mapAlbumDetails(albumDetailsResponse.data.results[0])
+      } catch {
+        setIsError(true)
+        return undefined
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     void (async () => {
@@ -32,10 +41,10 @@ function Details() {
         setAlbumInfo(albumDetails)
       }
     })()
-  }, [albumId])
+  }, [albumId, setIsError, setIsLoading])
 
   return (
-    <PageWrapper title="Album Details">
+    <PageWrapper title="Album Details" isLoading={isLoading} isError={isError}>
       <Stack align="center" className="album-details-section">
         <Button onClick={() => navigate('/')}>Back to Top Albums</Button>
         {albumInfo && <AlbumDetails {...albumInfo} />}
