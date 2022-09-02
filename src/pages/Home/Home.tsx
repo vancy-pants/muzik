@@ -1,8 +1,9 @@
-import { Space, Stack, TextInput } from '@mantine/core'
+import { Anchor, Space, Stack, TextInput } from '@mantine/core'
 import { useDebouncedValue } from '@mantine/hooks'
 import { IconSearch } from '@tabler/icons'
 import axios from 'axios'
 import { useCallback, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import AlbumCard from '../../components/AlbumCard/AlbumCard'
 import PageWrapper from '../../components/PageWrapper/PageWrapper'
 import useRequestStatus from '../../hooks/useRequestStatus'
@@ -80,6 +81,9 @@ function Home() {
           icon={<IconSearch size={14} />}
           className="search-input"
         />
+        <Anchor component={Link} to={'search'} className="search-all-link">
+          Or, search all iTunes albums!
+        </Anchor>
         <Space />
         {visibleAlbums.map((album, index) => (
           <AlbumCard rank={index + 1} key={album.id} {...album} />

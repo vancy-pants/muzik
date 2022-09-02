@@ -2,4 +2,12 @@
 
 .album-list {
   @include search-input;
+
+  .search-all-link {
+    color: $muzik-white;
+
+    a {
+      color: $muzik-white;
+    }
+  }
 }
