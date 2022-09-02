@@ -68,8 +68,8 @@ function Home() {
           className="search-input"
         />
         <Space />
-        {visibleAlbums.map((album) => (
-          <AlbumCard key={album.id} {...album} />
+        {visibleAlbums.map((album, index) => (
+          <AlbumCard rank={index + 1} key={album.id} {...album} />
         ))}
       </Stack>
     </PageWrapper>

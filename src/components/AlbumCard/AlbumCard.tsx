@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import { MuzikAlbum } from '../../types/common'
 import './AlbumCard.scss'
 
+interface AlbumCardProps extends MuzikAlbum {
+  rank: number
+}
+
 function AlbumCard({
+  rank,
   id,
   name,
   albumArt,
@@ -11,7 +16,7 @@ function AlbumCard({
   artistLink,
   trackCount,
   price,
-}: MuzikAlbum) {
+}: AlbumCardProps) {
   const navigate = useNavigate()
 
   const handleViewDetails = () => {
@@ -20,6 +25,9 @@ function AlbumCard({
 
   return (
     <Paper component={Group} shadow="xs" withBorder className="album-card">
+      <Text align="center" className="album-rank">
+        {rank}
+      </Text>
       <Image
         radius="md"
         src={albumArt}
