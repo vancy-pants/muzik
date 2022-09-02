@@ -9,11 +9,3 @@ $breakpoint-2xl: 1536px;
 $muzik-white: white;
 $muzik-pink: #ed6ea0;
 $muzik-orange: #ec8c69;
-
-@mixin page-content {
-  // all of the view height
-  // minus the height of the page header
-  // minus the height of the PageWave
-  // minus the height of the PageWrapper bottom padding
-  min-height: calc(100vh - 205px - 132px - 50px);
-}

@@ -13,4 +13,12 @@
     height: 205px;
     background-color: $muzik-white;
   }
+
+  .page-content {
+    // all of the view height
+    // minus the height of the page header
+    // minus the height of the PageWave
+    // minus the height of the PageWrapper bottom padding
+    min-height: calc(100vh - 205px - 132px - 50px);
+  }
 }

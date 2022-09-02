@@ -14,7 +14,7 @@ function PageWrapper({ title, children }: PropsWithChildren<PageWrapperProps>) {
         <Title order={1}>{title}</Title>
       </Stack>
       <PageWave />
-      {children}
+      <div className="page-content">{children}</div>
     </Stack>
   )
 }
