@@ -32,7 +32,6 @@ function AlbumDetails({
           alt={`${artist} album cover`}
           className="album-image"
         />
-        {/* //TODO: album name too wide? Wrap? */}
         <Text size="lg" weight={700} className="album-text">
           Album Name:{' '}
           {albumLink ? (

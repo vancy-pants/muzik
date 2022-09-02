@@ -24,5 +24,9 @@
     // minus the height of the PageWave
     // minus the height of the PageWrapper bottom padding
     min-height: calc(100vh - 205px - 132px - 50px);
+
+    @media (max-width: $breakpoint-md) {
+      min-height: calc(100vh - 100px - 132px - 50px);
+    }
   }
 }
