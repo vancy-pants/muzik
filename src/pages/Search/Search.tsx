@@ -28,6 +28,7 @@ function Search() {
         const searchResponse: SearchedAlbumsResponse = await axios.get(
           `https://itunes.apple.com/search?term=${term}&limit=25&entity=album`
         )
+
         setAlbums(
           searchResponse.data.results.map((albumResult) =>
             mapAlbumDetails(albumResult)
@@ -63,7 +64,7 @@ function Search() {
     albums.length === 0
 
   return (
-    <PageWrapper title="Album Details" isError={isError}>
+    <PageWrapper title="Search" isError={isError}>
       <Stack align="center" className="album-list">
         <Button onClick={() => navigate('/')}>Back to Top Albums</Button>
         <TextInput

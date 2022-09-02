@@ -69,10 +69,7 @@ function Home() {
   }, [debouncedSearchVal, topAlbums])
 
   return (
-    <PageWrapper
-      title="iTunes Top Albums"
-      isError={isError}
-    >
+    <PageWrapper title="iTunes Top Albums" isError={isError}>
       <Stack align="center" className="album-list">
         <TextInput
           value={searchValue}
