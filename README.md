@@ -32,7 +32,8 @@ I'm calling this site "Muzik!" on this first pass.
 - Allow the user to see more information about a selected Album
   - Done!
 - Host the website on the service of your choice
-  - Done! I'm hosting on Firebase because I want to learn more about their tooling/platform
+  - [Done!](https://muzik-b58ad.web.app/)
+  - I'm hosting on Firebase because I want to learn more about their tooling/platform
 - Surprise us!
   - Added the ability to search any album on iTunes and see its details too
 
