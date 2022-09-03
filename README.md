@@ -46,3 +46,4 @@ I'm calling this site "Muzik!" on this first pass.
   - I created a few files for this purpose, but I ran out of time...
 - Update favicon
 - Get the CI/CD debugged and functioning (currently deploying manually with firebase)
+- Handle mobile Safari auto-zoom on search inputs
