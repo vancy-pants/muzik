@@ -45,3 +45,4 @@ I'm calling this site "Muzik!" on this first pass.
 - Unit tests!
   - I created a few files for this purpose, but I ran out of time...
 - Update favicon
+- Get the CI/CD debugged and functioning (currently deploying manually with firebase)
