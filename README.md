@@ -30,15 +30,17 @@ I'm calling this site "Muzik!" on this first pass.
   - I didn't see any API info about searching based on the top iTunes albums, so I just used some debounced searching of the already-fetched values using the normal JS array filter method.
   - Note: I'm adding some more expansive album searching on a separate search page though, so hopefully that will also be helpful to review!
 - Allow the user to see more information about a selected Album
-  - TODO
+  - Done!
 - Host the website on the service of your choice
-  - TODO
-- Surprise us! Add a feature that you think would work well here (for instance, advanced search,
-  integration with other API, a "Favorite" functionality)
-  - TODO
+  - Done! I'm hosting on Firebase because I want to learn more about their tooling/platform
+- Surprise us!
+  - Added the ability to search any album on iTunes and see its details too
 
 ## TODO
 
 - Improve scroll behavior
   - Currently the pages stay at the same scroll depth on navigation, which I think could be improved
   - using some `useRef` hooks and `forwardRef` to achieve this would be how I would go about it
+- Unit tests!
+  - I created a few files for this purpose, but I ran out of time...
+- Update favicon
